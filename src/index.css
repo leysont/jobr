@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/*
+ Choose between `mocha`, `frappe` or `macchiato` for dark mode, latte is included as the light mode flavour.
+ We recommend using `mocha` for dark mode.
+*/
+@import "@catppuccin/tailwindcss/mocha.css";
+@import "@fontsource/maven-pro/400.css";
+@import "@fontsource/fira-code/400.css";
+
+@theme {
+  --color-accent: var(--color-ctp-mauve);
+  --font-sans: "Maven Pro", sans-serif;
+  --font-mono: "Fira Code", monospace;
+}
+
+@layer base {
+  :root {
+    @apply bg-ctp-crust text-ctp-text;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-accent;
+  }
+
+  * {
+    @apply border-ctp-surface0 duration-300;
+  }
+}
+
+@layer components {
+  a {
+    @apply text-accent/75 hover:text-accent transition-colors cursor-pointer hover:underline decoration-dotted;
+  }
+
+  body {
+    @apply m-0 flex items-center min-w-[320px] min-h-screen;
+  }
+
+  h1 {
+    @apply text-4xl tracking-tight leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl tracking-tight leading-snug;
+  }
+
+  h3 {
+    @apply text-2xl leading-snug;
+  }
+
+  h4 {
+    @apply text-xl leading-snug;
+  }
+
+  h5 {
+    @apply text-lg font-bold leading-normal;
+  }
+
+  h6 {
+    @apply text-base font-bold leading-normal;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+  }
+
+  small {
+    @apply text-sm text-ctp-overlay0;
+  }
+
+  blockquote {
+    @apply border-l-4 border-accent/25 pl-4 italic text-ctp-subtext0;
+  }
+
+  code {
+    @apply font-mono text-sm bg-ctp-surface0 text-ctp-subtext1 px-1 py-0.5 rounded;
+  }
+
+  ul {
+    @apply list-disc marker:text-ctp-overlay1 list-outside ml-4 text-left;
+  }
+
+  ol {
+    @apply list-decimal marker:text-ctp-overlay1 list-outside ml-4 text-left;
+  }
+
+  button {
+    @apply cursor-pointer flex gap-2 items-center;
+  }
+
+  button.btn {
+    @apply flex gap-2 items-center p-2.5;
+    @apply rounded-lg border text-base font-medium cursor-pointer transition-colors;
+    @apply bg-ctp-base text-ctp-text/75 border-ctp-surface0;
+    @apply hover:bg-ctp-surface0 hover:text-ctp-text hover:border-ctp-surface2;
+    @apply active:bg-ctp-surface1 active:text-ctp-text active:border-ctp-surface2;
+  }
+
+  button.btn.round {
+    @apply flex gap-2 items-center p-2.5;
+    @apply rounded-full border text-base font-medium cursor-pointer transition-colors;
+    @apply bg-ctp-base text-ctp-text/75 border-ctp-surface0;
+    @apply hover:bg-ctp-surface0 hover:text-ctp-text hover:border-ctp-surface2;
+    @apply active:bg-ctp-surface1 active:text-ctp-text active:border-ctp-surface2;
+  }
+
+  button.btn.red {
+    @apply bg-ctp-red/20 border-ctp-red/20 transition-colors;
+    @apply hover:bg-ctp-red/30 hover:text-ctp-red/90 hover:border-ctp-red/50;
+    @apply active:bg-ctp-red/50 active:border-ctp-red active:text-ctp-red;
+  }
+
+  button.btn.green {
+    @apply bg-ctp-green/20 border-ctp-green/20 transition-colors;
+    @apply hover:bg-ctp-green/30 hover:text-ctp-green/90 hover:border-ctp-green/50;
+    @apply active:bg-ctp-green/50 active:border-ctp-green active:text-ctp-green;
+  }
+
+  button.btn.blue {
+    @apply bg-ctp-blue/20 border-ctp-blue/20 transition-colors;
+    @apply hover:bg-ctp-blue/30 hover:text-ctp-blue/90 hover:border-ctp-blue/50;
+    @apply active:bg-ctp-blue/50 active:border-ctp-blue active:text-ctp-blue;
+  }
+
+  button.btn.accent {
+    @apply flex gap-2 items-center p-2.5;
+    @apply rounded-lg border text-base font-medium cursor-pointer;
+    @apply bg-accent/20 border-accent/20 transition-colors;
+    @apply hover:bg-accent/20 hover:text-accent/90 hover:border-accent/50;
+    @apply active:bg-accent/50 active:border-accent active:text-accent;
+  }
+
+  .card.accent {
+    @apply flex flex-col items-start gap-5 p-5 overflow-hidden;
+    @apply rounded-3xl border;
+    @apply bg-accent/5 border-accent/30;
+  }
+
+  .card {
+    @apply flex flex-col items-start gap-5 p-5 overflow-hidden;
+    @apply rounded-3xl border;
+    @apply bg-ctp-mantle border-ctp-surface0;
+  }
+
+  .div-hor {
+    @apply h-px self-stretch bg-ctp-surface0 mx-1;
+  }
+
+  .div-vert {
+    @apply w-px self-stretch bg-ctp-surface0 my-1;
+  }
+}
