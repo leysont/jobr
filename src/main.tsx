@@ -4,8 +4,8 @@ import {createRoot} from 'react-dom/client'
 import './index.css'
 import Home from './routes/Home.tsx'
 import {BrowserRouter, Navigate, NavLink, Outlet, Route, Routes} from 'react-router'
-import {LucideBookmark, LucideHistory, LucideHome, LucideUser} from 'lucide-react'
-import Profile from './routes/Profile.tsx'
+import {LucideBookmark, LucideHistory, LucideHome, LucideSettings, LucideUser} from 'lucide-react'
+import Settings from './routes/Settings.tsx'
 import PageHistory from './routes/PageHistory.tsx'
 import Bookmarks from './routes/Bookmarks.tsx'
 
@@ -29,7 +29,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/home" element={<Home/>}/>
           <Route path="/history" element={<PageHistory/>}/>
           <Route path="/bookmarks" element={<Bookmarks/>}/>
-          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/settings" element={<Settings/>}/>
 
           <Route path="*" element={<Navigate to="/home" replace/>}/>
         </Route>
@@ -41,8 +41,8 @@ createRoot(document.getElementById('root')!).render(
 function NavigationBar(): ReactNode {
   const linkClass = ({isActive}: {isActive: boolean}) =>
     isActive
-      ? 'text-accent'
-      : 'text-ctp-text/70 hover:text-ctp-text'
+      ? 'text-accent/75 hover:text-accent'
+      : 'text-ctp-text/75 hover:text-ctp-text'
 
   return <div className="flex flex-col gap-10 justify-start items-center py-2.5">
     <NavLink to="/home" className={linkClass}>
@@ -54,8 +54,8 @@ function NavigationBar(): ReactNode {
     <NavLink to="/bookmarks" className={linkClass}>
       <LucideBookmark size={40}/>
     </NavLink>
-    <NavLink to="/profile" className={linkClass}>
-      <LucideUser size={40}/>
+    <NavLink to="/settings" className={linkClass}>
+      <LucideSettings size={40}/>
     </NavLink>
   </div>
 }
