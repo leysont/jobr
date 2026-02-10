@@ -64,7 +64,7 @@
   }
 
   p {
-    @apply text-base leading-relaxed;
+    @apply text-base leading-relaxed text-start;
   }
 
   small {
@@ -111,12 +111,14 @@
     @apply bg-ctp-red/20 border-ctp-red/20 transition-colors;
     @apply hover:bg-ctp-red/30 hover:text-ctp-red/90 hover:border-ctp-red/50;
     @apply active:bg-ctp-red/50 active:border-ctp-red active:text-ctp-red;
+    @apply disabled:bg-ctp-red/10 disabled:border-ctp-red/30 disabled:text-ctp-red/30;
   }
 
   button.btn.green {
     @apply bg-ctp-green/20 border-ctp-green/20 transition-colors;
     @apply hover:bg-ctp-green/30 hover:text-ctp-green/90 hover:border-ctp-green/50;
     @apply active:bg-ctp-green/50 active:border-ctp-green active:text-ctp-green;
+    @apply disabled:bg-ctp-green/10 disabled:border-ctp-green/30 disabled:text-ctp-green/30;
   }
 
   button.btn.blue {

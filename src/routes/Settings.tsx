@@ -1,12 +1,12 @@
-import {LucideAlertCircle, LucideArrowLeft, LucideCircleQuestionMark, LucideTag, LucideUser} from 'lucide-react'
+import {LucideArrowLeft, LucideCircleQuestionMark, LucideTag, LucideUser} from 'lucide-react'
 import {NavLink} from 'react-router'
 
 function Settings() {
 
-  const data = {
-    tags_workingstyle: ["Analytisch", "Produktiv", "Teamorientiert", "Innovativ", "Fokussiert"],
-    tags_interests: ["Webentwicklung", "Softwareentwicklung", "Datenbanken", "Webdesign", "UX/UI Design"],
-    tags_social: ["Freunde", "Kollegen", "Freunde der Arbeit", "Freunde der Freunde"],
+  const user_data = {
+    tags_style: ["Analytisch", "Kreativ", "Teamarbeit", "Strukturiert", "Flexibel"],
+    tags_interests: ["IT", "Technik", "Gaming", "Reisen", "Musik"],
+    tags_social: ["Teamplayer", "Kommunikativ", "Organisierend", "Unterstützend"],
   }
 
   return <div className={'flex flex-col py-5 text-start gap-0'}>
@@ -23,31 +23,22 @@ function Settings() {
     <div className={'settings-item-full'}>
       <div>Arbeitsstil</div>
       <div className={'flex flex-wrap gap-1'}>
-        {data.tags_workingstyle.map((tag, index) => <span className={'chip'} key={index}>{tag}</span>)}
+        {user_data.tags_style.map((tag, index) => <span className={'chip'} key={index}>{tag}</span>)}
       </div>
     </div>
 
     <div className={'settings-item-full'}>
       <div>Interessen</div>
       <div className={'flex flex-wrap gap-1'}>
-        {data.tags_interests.map((tag, index) => <span className={'chip'} key={index}>{tag}</span>)}
+        {user_data.tags_interests.map((tag, index) => <span className={'chip'} key={index}>{tag}</span>)}
       </div>
     </div>
 
     <div className={'settings-item-full'}>
       <div>Soziales</div>
       <div className={'flex flex-wrap gap-1'}>
-        {data.tags_social.map((tag, index) => <span className={'chip'} key={index}>{tag}</span>)}
+        {user_data.tags_social.map((tag, index) => <span className={'chip'} key={index}>{tag}</span>)}
       </div>
-    </div>
-
-    <div className={'div-hor'}></div>
-
-    <div className={'settings-item-full flex items-center gap-2'}>
-      <LucideUser/> Konto
-    </div>
-    <div className={'settings-item-full flex items-center gap-2'}>
-      <LucideCircleQuestionMark/> Hilfe
     </div>
 
   </div>

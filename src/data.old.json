@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "job_title": "Softwareentwickler",
+    "job_description": "Erstellt verschiedene Softwareanwendungen",
+    "job_img_url": "https://rest.arbeitsagentur.de/infosysbub/berufepool-rest/ct/v1/bilder/dkz_13659_33.jpg",
+    "job_tag_style": [
+      "Analytisch",
+      "Ruhig & konzentriert",
+      "Eigenständig",
+      "Strukturiert"
+    ],
+    "job_tag_interests": [
+      "IT",
+      "Technik",
+      "Gaming",
+      "Medien"
+    ],
+    "job_tag_social": [
+      "Teamplayer",
+      "Organisierend",
+      "Ruhig"
+    ]
+  },
+  {
+    "id": 2,
+    "job_title": "Doktor",
+    "job_description": "Ein Doktor diagnostiziert Krankheiten, behandelt Patienten und sorgt für ihre medizinische Betreuung.",
+    "job_img_url": "https://i.redd.it/1vk7r9e33c0c1.jpg",
+    "job_tag_style": [
+      "Analytisch",
+      "Zielorientiert",
+      "Ruhig & konzentriert",
+      "Flexibel"
+    ],
+    "job_tag_interests": [
+      "Gesundheit",
+      "Fitness",
+      "Natur"
+    ],
+    "job_tag_social": [
+      "Beratend",
+      "Unterstützend",
+      "Kommunikativ"
+    ]
+  },
+  {
+    "id": 3,
+    "job_title": "Lehrer",
+    "job_description": "Ein Lehrer vermittelt Wissen, fördert Fähigkeiten und begleitet Schüler in ihrer persönlichen und fachlichen Entwicklung.",
+    "job_img_url": "https://th.bing.com/th/id/OIP.KQgQA0wuJDHdQ25p8rBQuwHaE7",
+    "job_tag_style": [
+      "Strukturiert",
+      "Kreativ",
+      "Teamarbeit",
+      "Flexibel"
+    ],
+    "job_tag_interests": [
+      "Sprachen",
+      "Medien",
+      "Kunst",
+      "Musik"
+    ],
+    "job_tag_social": [
+      "Kommunikativ",
+      "Unterstützend",
+      "Beratend",
+      "Organisierend"
+    ]
+  },
+  {
+    "id": 4,
+    "job_title": "Polizist",
+    "job_description": "Ein Polizist sorgt für Sicherheit, setzt Gesetze durch und hilft Menschen in Not.",
+    "job_img_url": "https://th.bing.com/th/id/OIP.VpNq3Eq4QyOPQwlBDsPB1gHaE8",
+    "job_tag_style": [
+      "Schnell & dynamisch",
+      "Zielorientiert",
+      "Praktisch",
+      "Teamarbeit"
+    ],
+    "job_tag_interests": [
+      "Sport",
+      "Fitness",
+      "Umwelt"
+    ],
+    "job_tag_social": [
+      "Durchsetzungsstark",
+      "Teamplayer",
+      "Unterstützend"
+    ]
+  },
+  {
+    "id": 5,
+    "job_title": "Feuerwehrmann",
+    "job_description": "Ein Feuerwehrmann rettet Menschen und Tiere, löscht Brände und leistet technische Hilfe in Notlagen.",
+    "job_img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHTFy5xVAXowIvax82jgqHOJx7MefgN26GpQ&s",
+    "job_tag_style": [
+      "Praktisch",
+      "Schnell & dynamisch",
+      "Teamarbeit",
+      "Zielorientiert"
+    ],
+    "job_tag_interests": [
+      "Fitness",
+      "Natur",
+      "Umwelt",
+      "Technik"
+    ],
+    "job_tag_social": [
+      "Teamplayer",
+      "Unterstützend",
+      "Durchsetzungsstark"
+    ]
+  },
+  {
+    "id": 6,
+    "job_title": "Astronaut",
+    "job_description": "Ein Astronaut erforscht den Weltraum, führt Experimente durch und arbeitet an Bord von Raumfahrzeugen oder Raumstationen.",
+    "job_img_url": "https://i.redd.it/5gjxwkgm66j81.jpg",
+    "job_tag_style": [
+      "Analytisch",
+      "Ruhig & konzentriert",
+      "Strukturiert",
+      "Teamarbeit"
+    ],
+    "job_tag_interests": [
+      "Technik",
+      "Natur",
+      "Reisen",
+      "Umwelt"
+    ],
+    "job_tag_social": [
+      "Teamplayer",
+      "Ruhig",
+      "Organisierend"
+    ]
+  },
+  {
+    "id": 7,
+    "job_title": "Soldat",
+    "job_description": "Ein Soldat schützt sein Land, erfüllt militärische Aufgaben und hilft bei Sicherheits- und Verteidigungseinsätzen.",
+    "job_img_url": "https://www.gehalt.de/cms/bundeswehr-was-den-soldatenberuf-un-attraktiv-macht_dc18b6f2-db18-4e4c-905b-ee8a9b05a4f3.jpg",
+    "job_tag_style": [
+      "Strukturiert",
+      "Zielorientiert",
+      "Teamarbeit",
+      "Praktisch"
+    ],
+    "job_tag_interests": [
+      "Fitness",
+      "Sport",
+      "Natur"
+    ],
+    "job_tag_social": [
+      "Durchsetzungsstark",
+      "Teamplayer",
+      "Führung"
+    ]
+  },
+  {
+    "id": 8,
+    "job_title": "Webdesigner",
+    "job_description": "Entwirft Layouts und Benutzeroberflächen für Websites.",
+    "job_img_url": "https://media.aubi-plus.com/berufsbild/xlarge/75bba69-webdesigner-developer-arbeiten-in-der-werbebranche.webp",
+    "job_tag_style": [ "Kreativ", "Strukturiert", "Analytisch" ],
+    "job_tag_interests": [ "Design", "IT", "Medien" ],
+    "job_tag_social": [ "Kommunikativ" ]
+  }
+]
