@@ -7,7 +7,6 @@ export interface Job {
   job_img_url: string,
   job_tag_style: string[],
   job_tag_interests: string[],
-  job_tag_social: string[]
 }
 
 const jobs: Job[] = data

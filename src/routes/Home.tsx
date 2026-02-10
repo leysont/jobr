@@ -5,10 +5,9 @@ import {type JobMatch, useAppCtx} from '../main.tsx'
 
 function Home() {
 
-  const {user, seenJobs, setSeenJobs, matchedJobs, setMatchedJobs} = useAppCtx()
+  const {userTags, seenJobs, setSeenJobs, matchedJobs, setMatchedJobs, allJobs, setAllJobs} = useAppCtx()
 
   const [currentJob, setCurrentJob] = useState<Job | null>(null)
-  const [allJobs, setAllJobs] = useState<Job[]>([])
   const [likedJobs, setLikedJobs] = useState<Job[]>([])
   const [areJobsAvailable, setAreJobsAvailable] = useState(true)
 
@@ -68,27 +67,35 @@ function Home() {
   }
 
 
-
   type JobResultsProps = {
     jobMatches: JobMatch[]
   }
 
   function JobResults({jobMatches}: JobResultsProps) {
     return <div className={'w-full flex flex-col justify-center items-center gap-3 size-full'}>
-      <h3 className={'text-ctp-green'}>Du hast alle Jobs gesehen!</h3>
+      <h3 className={'text-ctp-green'}>Du hast {jobMatches.length} Jobs geliket!</h3>
       <span className={''}>Sieh dir jetzt an, welche Jobs wirklich zu dir passen!</span>
 
-      <div className={'flex flex-col gap-5'}>
+      <div className={'flex flex-col gap-5 max-h-96 overflow-y-auto mt-5 max-w-96'}>
         {
-          jobMatches.sort((a, b) => b.job.job_tag_interests.length - a.job.job_tag_interests.length).map(jobMatch =>
-            <div className={'flex flex-col'}>
-              <span className={'text-start'}>{jobMatch.job.job_title}</span>
+          jobMatches.sort((a, b) => b.matching_tags.length - a.matching_tags.length).map(jobMatch =>
+            <div className={'flex flex-col'} key={jobMatch.job.id}>
+              <span className={'text-start ps-2'}>{jobMatch.job.job_title}</span>
               <div className={'flex flex-wrap gap-1'}>
-                {
-                  jobMatch.job.job_tag_interests.map(tag =>
-                    <span className={'chip w-min whitespace-nowrap'} key={`${jobMatch.job.id}-${tag}`}>{tag}</span>,
-                  )
-                }
+                {[
+                  jobMatch.job.job_tag_interests.map(tag => {
+                    const isMatch = userTags?.interests.includes(tag)
+                    return <span className={`chip w-min whitespace-nowrap border blue ${(isMatch ? 'border-ctp-blue' : ' border-transparent')}`} key={`${jobMatch.job.id}-${tag}`}>
+                      {tag}
+                    </span>
+                  }),
+                  jobMatch.job.job_tag_style.map(tag => {
+                    const isMatch = userTags?.style.includes(tag)
+                    return <span className={`chip w-min whitespace-nowrap border green ${(isMatch ? 'border-ctp-green' : 'border-transparent')}`} key={`${jobMatch.job.id}-${tag}`}>
+                      {tag}
+                    </span>
+                  }),
+                ].flat()}
               </div>
             </div>,
           )
@@ -99,17 +106,16 @@ function Home() {
   }
 
 
-  function evaluateMatches() {
+  function evaluateMatches(): JobMatch[] {
 
+    const unfilteredJobMatches: JobMatch[] = likedJobs.map(job => {
+      return {job, matching_tags: [job.job_tag_interests, job.job_tag_style].flat()}
+    })
+    const userTags2 = [userTags?.interests, userTags?.style].flat()
 
-
-    return likedJobs.map(job => ({
-      job, matching_user_tags: {
-        interests: job.job_tag_interests,
-        style: job.job_tag_style,
-        social: job.job_tag_social,
-      },
-    }))
+    return unfilteredJobMatches.map(jobMatch => {
+      return {...jobMatch, matching_tags: jobMatch.matching_tags.filter(tag => userTags2.includes(tag))}
+    })
   }
 
   return <div className={'flex flex-col h-screen w-full'}>

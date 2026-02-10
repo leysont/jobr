@@ -11,28 +11,23 @@ import type {Job} from './JobRepo.ts'
 
 export type JobMatch = {
   job: Job,
-  matching_user_tags: {
-    interests: string[],
-    style: string[],
-    social: string[],
-  }
+  matching_tags: string[]
 }
 
-type User = {
-  tags: {
-    interests: string[],
-    style: string[],
-    social: string[],
-  }
+type UserTags = {
+  interests: string[],
+  style: string[],
 }
 
 type AppCtx = {
-  user: User | null,
-  setUser: React.Dispatch<React.SetStateAction<User | null>>,
+  userTags: UserTags | null,
+  setUserTags: React.Dispatch<React.SetStateAction<UserTags | null>>,
   seenJobs: Job[],
   setSeenJobs: React.Dispatch<React.SetStateAction<Job[]>>,
   matchedJobs: JobMatch[],
   setMatchedJobs: React.Dispatch<React.SetStateAction<JobMatch[]>>,
+  allJobs: Job[],
+  setAllJobs: React.Dispatch<React.SetStateAction<Job[]>>,
 }
 
 export function useAppCtx() {
@@ -41,18 +36,28 @@ export function useAppCtx() {
 
 function Layout() {
 
-  const [user, setUser] = useState<User | null>(null)
+  const [userTags, setUserTags] = useState<UserTags | null>(null)
   const [seenJobs, setSeenJobs] = useState<Job[]>([])
   const [matchedJobs, setMatchedJobs] = useState<JobMatch[]>([])
+  const [allJobs, setAllJobs] = useState<Job[]>([])
 
-  const appCtx: AppCtx = {user, setUser, seenJobs, setSeenJobs, matchedJobs, setMatchedJobs}
+  const appCtx: AppCtx = {
+    userTags,
+    setUserTags,
+    seenJobs,
+    setSeenJobs,
+    matchedJobs,
+    setMatchedJobs,
+    allJobs,
+    setAllJobs,
+  }
 
 
   return (
     <div className={'flex gap-5'}>
       <NavigationBar/>
       <div className={'card w-[550px] h-[620px] p-0'}>
-        <Outlet context={appCtx} />
+        <Outlet context={appCtx}/>
       </div>
     </div>
   )
@@ -71,11 +76,11 @@ createRoot(document.getElementById('root')!).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 )
 
 function NavigationBar(): ReactNode {
-  const linkClass = ({isActive}: {isActive: boolean}) =>
+  const linkClass = ({isActive}: { isActive: boolean }) =>
     isActive
       ? 'text-accent/75 hover:text-accent'
       : 'text-ctp-text/75 hover:text-ctp-text'

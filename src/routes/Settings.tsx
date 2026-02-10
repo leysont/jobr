@@ -1,12 +1,35 @@
-import {LucideArrowLeft, LucideCircleQuestionMark, LucideTag, LucideUser} from 'lucide-react'
+import {LucideArrowLeft, LucideTag} from 'lucide-react'
 import {NavLink} from 'react-router'
+import {useEffect, useState} from 'react'
+import {useAppCtx} from '../main.tsx'
+
+type PopupShown = 'interests' | 'style'
 
 function Settings() {
 
-  const user_data = {
-    tags_style: ["Analytisch", "Kreativ", "Teamarbeit", "Strukturiert", "Flexibel"],
-    tags_interests: ["IT", "Technik", "Gaming", "Reisen", "Musik"],
-    tags_social: ["Teamplayer", "Kommunikativ", "Organisierend", "Unterstützend"],
+  const {userTags, setUserTags} = useAppCtx()
+
+  useEffect(() => {
+    setUserTags({
+      interests: ["IT", "Technik", "Gaming", "Reisen", "Musik"],
+      style: ["Analytisch", "Kreativ", "Teamarbeit", "Strukturiert", "Flexibel",
+        "Teamplayer", "Kommunikativ", "Organisierend", "Unterstützend"],
+    })
+  }, []);
+
+  const [popupShown, setPopupShown] = useState<PopupShown | null>(null)
+
+  function showPopupInterests() {
+    setPopupShown('interests')
+
+  }
+
+  function showPopupStyle() {
+    setPopupShown('style')
+  }
+
+  function closePopup() {
+    setPopupShown(null)
   }
 
   return <div className={'flex flex-col py-5 text-start gap-0'}>
@@ -20,28 +43,70 @@ function Settings() {
       <LucideTag/> Meine Tags
     </h4>
 
-    <div className={'settings-item-full'}>
-      <div>Arbeitsstil</div>
-      <div className={'flex flex-wrap gap-1'}>
-        {user_data.tags_style.map((tag, index) => <span className={'chip'} key={index}>{tag}</span>)}
-      </div>
-    </div>
-
-    <div className={'settings-item-full'}>
+    <div className={'settings-item-full'} onClick={() => popupShown ? closePopup() : showPopupInterests()}>
       <div>Interessen</div>
       <div className={'flex flex-wrap gap-1'}>
-        {user_data.tags_interests.map((tag, index) => <span className={'chip'} key={index}>{tag}</span>)}
+        {userTags?.interests.map((tag, index) => <span className={'chip blue'} key={index}>{tag}</span>)}
       </div>
     </div>
 
-    <div className={'settings-item-full'}>
-      <div>Soziales</div>
+    <div className={'settings-item-full'} onClick={() => popupShown ? closePopup() : showPopupStyle()}>
+      <div>Arbeitsstil</div>
       <div className={'flex flex-wrap gap-1'}>
-        {user_data.tags_social.map((tag, index) => <span className={'chip'} key={index}>{tag}</span>)}
+        {userTags?.style.map((tag, index) => <span className={'chip green'} key={index}>{tag}</span>)}
       </div>
     </div>
+
+    {/*{popupShown ? <ListSelectPopup type={popupShown}/> : null}*/}
 
   </div>
 }
+
+// type ListSelectPopupProps = {
+//   type: PopupShown
+// }
+
+// function ListSelectPopup({type}: ListSelectPopupProps) {
+//   const {userTags, setUserTags, seenJobs, setSeenJobs, matchedJobs, setMatchedJobs, allJobs, setAllJobs} = useAppCtx()
+//
+//   const list: string[] = [...new Set(allJobs.map(job => type === 'interests' ? job.job_tag_interests : job.job_tag_style).flat())]
+//
+//   console.log(list)
+//
+//   return <div className={'PopUp card h-10'}>
+//     {type}
+//
+//     {list.map((tag, index) => <div key={index}>
+//       {type === 'interests' ?
+//         <CheckBox text={tag}
+//           checked={userTags?.interests.includes(tag) ?? false}
+//           onToggle={checked => {
+//             if(checked) {
+//               setUserTags(prev => prev?.interests.push(tag))
+//             } else {
+//               setUserTags({...userTags, interests: userTags.interests.filter(interest => interest !== tag)})
+//             }
+//           }}
+//         /> : type === 'style' ?
+//           <CheckBox text={tag}
+//             checked={userTags?.style.includes(tag) ?? false}/> : null
+//       }
+//     </div>)}
+//   </div>
+// }
+
+// type CheckBoxProps = {
+//   text: string,
+//   checked: boolean,
+//   onToggle: (checked: boolean) => void,
+// }
+//
+// function CheckBox({text, checked, onToggle}: CheckBoxProps) {
+//
+//   return <button onClick={() => onToggle(!checked)} role="checkbox" aria-checked={checked}>
+//     {checked ? <LucideSquareCheck/> : <LucideSquare/>}
+//     Accept terms
+//   </button>
+// }
 
 export default Settings

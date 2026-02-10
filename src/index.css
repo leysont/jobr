@@ -146,6 +146,14 @@
     @apply inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-ctp-surface1 text-ctp-text/75;
   }
 
+  .chip.blue {
+    @apply bg-ctp-blue/20 text-ctp-blue/90;
+  }
+
+  .chip.green {
+    @apply bg-ctp-green/20 text-ctp-green/90;
+  }
+
   .card.accent {
     @apply flex flex-col items-start gap-5 p-5 overflow-hidden;
     @apply rounded-3xl border;
@@ -164,5 +172,21 @@
 
   .div-vert {
     @apply w-px self-stretch bg-ctp-surface0 my-1;
+  }
+
+  .PopUp{
+
+
+    position: fixed;
+
+    left: 20%;
+    top: 20%;
+
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 }
