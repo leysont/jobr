@@ -4,233 +4,207 @@
     "job_title": "Softwareentwickler",
     "job_description": "Erstellt und wartet Softwareanwendungen.",
     "job_img_url": "https://rest.arbeitsagentur.de/infosysbub/berufepool-rest/ct/v1/bilder/dkz_13659_33.jpg",
-    "job_tag_style": [ "Analytisch", "Eigenständig", "Strukturiert", "Ruhig & konzentriert" ],
-    "job_tag_interests": [ "IT", "Technik", "Gaming" ],
-    "job_tag_social": [ "Teamplayer", "Ruhig" ]
+    "job_tag_style": ["Analytisch", "Eigenständig", "Strukturiert", "Ruhig & konzentriert", "Teamplayer", "Ruhig"],
+    "job_tag_interests": ["IT", "Technik", "Gaming"]
   },
   {
     "id": 2,
     "job_title": "Grafikdesigner",
     "job_description": "Gestaltet visuelle Inhalte für digitale und gedruckte Medien.",
     "job_img_url": "https://media.aubi-plus.com/berufsbild/xlarge/9544996-grafikdesigner-bei-der-arbeit.webp",
-    "job_tag_style": [ "Kreativ", "Eigenständig", "Flexibel" ],
-    "job_tag_interests": [ "Design", "Kunst", "Medien" ],
-    "job_tag_social": [ "Beratend", "Kommunikativ" ]
+    "job_tag_style": ["Kreativ", "Eigenständig", "Flexibel", "Beratend", "Kommunikativ"],
+    "job_tag_interests": ["Design", "Kunst", "Medien"]
   },
   {
     "id": 3,
     "job_title": "Webdesigner",
     "job_description": "Entwirft Layouts und Benutzeroberflächen für Websites.",
     "job_img_url": "https://media.aubi-plus.com/berufsbild/xlarge/75bba69-webdesigner-developer-arbeiten-in-der-werbebranche.webp",
-    "job_tag_style": [ "Kreativ", "Strukturiert", "Analytisch" ],
-    "job_tag_interests": [ "Design", "IT", "Medien" ],
-    "job_tag_social": [ "Kommunikativ" ]
+    "job_tag_style": ["Kreativ", "Strukturiert", "Analytisch", "Kommunikativ"],
+    "job_tag_interests": ["Design", "IT", "Medien"]
   },
   {
     "id": 4,
     "job_title": "Mechatroniker",
     "job_description": "Arbeitet an mechanischen und elektronischen Systemen.",
     "job_img_url": "https://www.ausbildung.de/uploads/image/61/61e41709-47f2-44b3-bb98-6a2d1699cb99/ausbildung-mechatroniker-header.jpg",
-    "job_tag_style": [ "Praktisch", "Analytisch", "Strukturiert" ],
-    "job_tag_interests": [ "Technik", "IT" ],
-    "job_tag_social": [ "Teamplayer" ]
+    "job_tag_style": ["Praktisch", "Analytisch", "Strukturiert", "Teamplayer"],
+    "job_tag_interests": ["Technik", "IT", "Handwerk"]
   },
   {
     "id": 5,
     "job_title": "Elektriker",
     "job_description": "Installiert und wartet elektrische Anlagen.",
     "job_img_url": "https://www.entscheider.com/elektriker-und-elektroniker/wp-content/uploads/sites/9/Elektriker.jpg",
-    "job_tag_style": [ "Praktisch", "Strukturiert", "Zielorientiert" ],
-    "job_tag_interests": [ "Technik" ],
-    "job_tag_social": [ "Teamplayer" ]
+    "job_tag_style": ["Praktisch", "Strukturiert", "Zielorientiert", "Teamplayer"],
+    "job_tag_interests": ["Technik", "Handwerk"]
   },
   {
     "id": 6,
     "job_title": "Koch",
     "job_description": "Bereitet Speisen zu und entwickelt neue Gerichte.",
     "job_img_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Cookers_in_the_White_House_kitchen.jpg",
-    "job_tag_style": [ "Kreativ", "Schnell & dynamisch", "Praktisch" ],
-    "job_tag_interests": [ "Kochen", "Kunst" ],
-    "job_tag_social": [ "Teamplayer", "Durchsetzungsstark" ]
+    "job_tag_style": ["Kreativ", "Schnell & dynamisch", "Praktisch", "Teamplayer", "Durchsetzungsstark"],
+    "job_tag_interests": ["Kochen", "Kunst", "Handwerk"]
   },
   {
     "id": 7,
     "job_title": "Bäcker",
     "job_description": "Stellt Backwaren her.",
     "job_img_url": "https://www.dorfbaeckerei-ackermann.de/wp-content/uploads/Leonardo_Diffusion_XL_Bakery_baker_0.jpg",
-    "job_tag_style": [ "Praktisch", "Ruhig & konzentriert" ],
-    "job_tag_interests": [ "Kochen" ],
-    "job_tag_social": [ "Ruhig" ]
+    "job_tag_style": ["Praktisch", "Ruhig & konzentriert", "Ruhig"],
+    "job_tag_interests": ["Kochen", "Handwerk"]
   },
   {
     "id": 8,
     "job_title": "Fitnesscoach",
     "job_description": "Betreut Menschen beim Training und bei der Fitness.",
     "job_img_url": "https://www.academyofsports.de/files/keyvisual/produktbilder/produkt-fitness-coach-ausbildung.webp",
-    "job_tag_style": [ "Zielorientiert", "Praktisch" ],
-    "job_tag_interests": [ "Fitness", "Gesundheit" ],
-    "job_tag_social": [ "Kommunikativ" ]
+    "job_tag_style": ["Zielorientiert", "Praktisch", "Kommunikativ"],
+    "job_tag_interests": ["Fitness", "Gesundheit"]
   },
   {
     "id": 9,
     "job_title": "Physiotherapeut",
     "job_description": "Behandelt Patienten zur Wiederherstellung der Beweglichkeit.",
     "job_img_url": "https://image.stern.de/8792086/t/qj/v6/w1440/r1.7778/-/physiotherapeut-gehalt-check.jpg",
-    "job_tag_style": [ "Ruhig & konzentriert", "Praktisch" ],
-    "job_tag_interests": [ "Gesundheit", "Fitness" ],
-    "job_tag_social": [ "Unterstützend", "Beratend" ]
+    "job_tag_style": ["Ruhig & konzentriert", "Praktisch", "Unterstützend", "Beratend"],
+    "job_tag_interests": ["Gesundheit", "Fitness"]
   },
   {
     "id": 10,
     "job_title": "Arzt",
     "job_description": "Diagnostiziert und behandelt Krankheiten.",
     "job_img_url": "https://ih1.redbubble.net/image.2382029195.6138/flat,750x,075,f-pad,750x1000,f8f8f8.webp",
-    "job_tag_style": [ "Analytisch", "Zielorientiert", "Ruhig & konzentriert" ],
-    "job_tag_interests": [ "Gesundheit" ],
-    "job_tag_social": [ "Beratend", "Unterstützend" ]
+    "job_tag_style": ["Analytisch", "Zielorientiert", "Ruhig & konzentriert", "Beratend", "Unterstützend"],
+    "job_tag_interests": ["Gesundheit"]
   },
   {
     "id": 11,
     "job_title": "Pflegefachkraft",
     "job_description": "Betreut und pflegt kranke oder ältere Menschen.",
     "job_img_url": "https://carelend.de/wp-content/uploads/2023/08/young-nurse-chcecking-blood-presure-to-senior-pati-2023-01-24-09-02-40-utc-1536x1024-1-1200x800.jpg",
-    "job_tag_style": [ "Praktisch", "Ruhig & konzentriert" ],
-    "job_tag_interests": [ "Gesundheit" ],
-    "job_tag_social": [ "Unterstützend", "Ruhig" ]
+    "job_tag_style": ["Praktisch", "Ruhig & konzentriert", "Unterstützend", "Ruhig"],
+    "job_tag_interests": ["Gesundheit"]
   },
   {
     "id": 12,
     "job_title": "Lehrer",
     "job_description": "Vermittelt Wissen an Schüler.",
     "job_img_url": "https://pbs.twimg.com/media/FSOtsWZUUAURHIt.jpg",
-    "job_tag_style": [ "Strukturiert", "Kreativ" ],
-    "job_tag_interests": [ "Sprachen", "Kunst" ],
-    "job_tag_social": [ "Kommunikativ", "Beratend" ]
+    "job_tag_style": ["Strukturiert", "Kreativ", "Kommunikativ", "Beratend"],
+    "job_tag_interests": ["Sprachen", "Kunst", "Pädagogik"]
   },
   {
     "id": 13,
     "job_title": "Erzieher",
     "job_description": "Betreut und fördert Kinder.",
     "job_img_url": "https://blog.backwinkel.de/wp-content/uploads/2021/09/backwinkel-blog-mannliche-erzieher-heroimage.jpg",
-    "job_tag_style": [ "Kreativ", "Flexibel" ],
-    "job_tag_interests": [ "Kunst", "Musik" ],
-    "job_tag_social": [ "Unterstützend", "Kommunikativ" ]
+    "job_tag_style": ["Kreativ", "Flexibel", "Unterstützend", "Kommunikativ"],
+    "job_tag_interests": ["Kunst", "Musik", "Pädagogik"]
   },
   {
     "id": 14,
     "job_title": "Journalist",
     "job_description": "Recherchiert und schreibt Artikel.",
     "job_img_url": "https://media.istockphoto.com/id/468874313/photo/young-professional-journalist-portrait.jpg?s=170667a&w=0&k=20&c=v2M4GyWRDJ56kjEpE8rdVpUL4oOKE1VM7ox1pkbagyE=",
-    "job_tag_style": [ "Analytisch", "Kreativ" ],
-    "job_tag_interests": [ "Medien", "Sprachen" ],
-    "job_tag_social": [ "Kommunikativ" ]
+    "job_tag_style": ["Analytisch", "Kreativ", "Kommunikativ"],
+    "job_tag_interests": ["Medien", "Sprachen"]
   },
   {
     "id": 15,
     "job_title": "Fotograf",
     "job_description": "Erstellt professionelle Fotos.",
     "job_img_url": "https://image.freepik.com/fotos-kostenlos/junger-stilvoller-fotograf-haelt-berufskamera-und-macht-fotos_8353-6506.jpg",
-    "job_tag_style": [ "Kreativ", "Eigenständig" ],
-    "job_tag_interests": [ "Kunst", "Medien" ],
-    "job_tag_social": [ "Ruhig" ]
+    "job_tag_style": ["Kreativ", "Eigenständig", "Ruhig"],
+    "job_tag_interests": ["Kunst", "Medien"]
   },
   {
     "id": 16,
     "job_title": "Social Media Manager",
     "job_description": "Verwaltet Social-Media-Kanäle.",
     "job_img_url": "https://tse4.mm.bing.net/th/id/OIP.RGl_7rrJ1RDNH6-8IYap6AHaE8?pid=ImgDet&w=138&h=92.11500000000001&c=7&dpr=1,3&o=7&rm=3",
-    "job_tag_style": [ "Flexibel", "Kreativ" ],
-    "job_tag_interests": [ "Social Media", "Medien" ],
-    "job_tag_social": [ "Kommunikativ" ]
+    "job_tag_style": ["Flexibel", "Kreativ", "Kommunikativ"],
+    "job_tag_interests": ["Social Media", "Medien"]
   },
   {
     "id": 17,
     "job_title": "Marketing Manager",
     "job_description": "Plant Marketingstrategien.",
     "job_img_url": "https://tse4.mm.bing.net/th/id/OIP.v7SqQ9Ssakw4FQbKjU2n8AHaEK?pid=ImgDet&w=157&h=101.44615384615385&c=7&dpr=1,3&o=7&rm=3",
-    "job_tag_style": [ "Zielorientiert", "Analytisch" ],
-    "job_tag_interests": [ "Medien", "Design" ],
-    "job_tag_social": [ "Führung", "Kommunikativ" ]
+    "job_tag_style": ["Zielorientiert", "Analytisch", "Führung", "Kommunikativ"],
+    "job_tag_interests": ["Medien", "Design"]
   },
   {
     "id": 18,
     "job_title": "Verkäufer",
     "job_description": "Berät Kunden und verkauft Produkte.",
     "job_img_url": "https://c8.alamy.com/compde/e5hkme/verkaufer-verkauferin-im-lebensmittelgeschaft-mit-kreditkarte-maschine-e5hkme.jpg",
-    "job_tag_style": [ "Schnell & dynamisch", "Zielorientiert" ],
-    "job_tag_interests": [ "Mode" ],
-    "job_tag_social": [ "Kommunikativ" ]
+    "job_tag_style": ["Schnell & dynamisch", "Zielorientiert", "Kommunikativ"],
+    "job_tag_interests": ["Mode"]
   },
   {
     "id": 19,
     "job_title": "Logistiker",
     "job_description": "Plant und koordiniert Warenströme.",
     "job_img_url": "https://img.freepik.com/fotos-premium/laecheln-des-managers-und-portraet-eines-mannes-im-lager-fuer-frachtlagerung-und-versand-vertrieb-e-commerce-und-logistik-mit-mitarbeiter-im-fabrikwerk-fuer-lieferkettenpakete-oder-grosshandelslieferanten_590464-185748.jpg",
-    "job_tag_style": [ "Strukturiert", "Analytisch" ],
-    "job_tag_interests": [ "Technik" ],
-    "job_tag_social": [ "Organisierend" ]
+    "job_tag_style": ["Strukturiert", "Analytisch", "Organisierend"],
+    "job_tag_interests": ["Technik"]
   },
   {
     "id": 20,
     "job_title": "Lagerist",
     "job_description": "Verwaltet Waren im Lager.",
     "job_img_url": "https://media.istockphoto.com/id/175139574/de/foto/arbeiter-schreiben-in-zwischenablage-im-warehouse.jpg?s=612x612&w=0&k=20&c=z5h2eebBJS6alr9ajwClFn7adoeyevS0c8Ugsn4AM4g=",
-    "job_tag_style": [ "Praktisch", "Strukturiert" ],
-    "job_tag_interests": [ "Technik" ],
-    "job_tag_social": [ "Ruhig" ]
+    "job_tag_style": ["Praktisch", "Strukturiert", "Ruhig"],
+    "job_tag_interests": ["Technik"]
   },
   {
     "id": 21,
     "job_title": "Polizist",
     "job_description": "Sorgt für Sicherheit und Ordnung.",
     "job_img_url": "https://th.bing.com/th/id/OIP.VpNq3Eq4QyOPQwlBDsPB1gHaE8",
-    "job_tag_style": [ "Zielorientiert", "Schnell & dynamisch" ],
-    "job_tag_interests": [ "Sport", "Fitness" ],
-    "job_tag_social": [ "Durchsetzungsstark", "Teamplayer" ]
+    "job_tag_style": ["Zielorientiert", "Schnell & dynamisch", "Durchsetzungsstark", "Teamplayer"],
+    "job_tag_interests": ["Sport", "Fitness"]
   },
   {
     "id": 22,
     "job_title": "Feuerwehrmann",
     "job_description": "Rettet Menschen und löscht Brände.",
     "job_img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHTFy5xVAXowIvax82jgqHOJx7MefgN26GpQ&s",
-    "job_tag_style": [ "Praktisch", "Schnell & dynamisch" ],
-    "job_tag_interests": [ "Fitness", "Natur" ],
-    "job_tag_social": [ "Teamplayer" ]
+    "job_tag_style": ["Praktisch", "Schnell & dynamisch", "Teamplayer"],
+    "job_tag_interests": ["Fitness", "Natur"]
   },
   {
     "id": 23,
     "job_title": "Soldat",
     "job_description": "Erfüllt militärische Aufgaben.",
     "job_img_url": "https://www.gehalt.de/cms/bundeswehr-was-den-soldatenberuf-un-attraktiv-macht_dc18b6f2-db18-4e4c-905b-ee8a9b05a4f3.jpg",
-    "job_tag_style": [ "Strukturiert", "Zielorientiert" ],
-    "job_tag_interests": [ "Sport", "Natur" ],
-    "job_tag_social": [ "Führung", "Durchsetzungsstark" ]
+    "job_tag_style": ["Strukturiert", "Zielorientiert", "Führung", "Durchsetzungsstark"],
+    "job_tag_interests": ["Sport", "Natur"]
   },
   {
     "id": 24,
     "job_title": "Gärtner",
     "job_description": "Pflegt Pflanzen und Grünanlagen.",
     "job_img_url": "https://as2.ftcdn.net/v2/jpg/00/85/60/11/1000_F_85601169_mOvQjuny4uCdWzcdtRM2J8GCXsiBjYHL.jpg",
-    "job_tag_style": [ "Praktisch", "Ruhig & konzentriert" ],
-    "job_tag_interests": [ "Natur", "Umwelt" ],
-    "job_tag_social": [ "Ruhig" ]
+    "job_tag_style": ["Praktisch", "Ruhig & konzentriert", "Ruhig"],
+    "job_tag_interests": ["Natur", "Umwelt", "Handwerk"]
   },
   {
     "id": 25,
     "job_title": "Umwelttechniker",
     "job_description": "Arbeitet an Umwelt- und Nachhaltigkeitsprojekten.",
     "job_img_url": "https://www.ibw.ch/sites/default/files/styles/parallax_header_mobile_1x/public/2021-01/shutterstock_96602653_dipl.-Techniker--in-HF-Energie-und-Umwelt.jpg?h=e9fd1076&itok=iK2PgriZ",
-    "job_tag_style": [ "Analytisch", "Zielorientiert" ],
-    "job_tag_interests": [ "Umwelt", "Technik" ],
-    "job_tag_social": [ "Beratend" ]
+    "job_tag_style": ["Analytisch", "Zielorientiert", "Beratend"],
+    "job_tag_interests": ["Umwelt", "Technik"]
   },
   {
-    "id":  26,
+    "id": 26,
     "job_title": "Astronaut",
     "job_description": "Ein Astronaut erforscht den Weltraum, führt Experimente durch und arbeitet an Bord von Raumfahrzeugen oder Raumstationen.",
     "job_img_url": "https://media.licdn.com/dms/image/v2/C4D03AQGyD3fkRhSvYQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1663090168915?e=2147483647&v=beta&t=10GATIleiRxtovuGcYF7dTdy0fKxqoq5FoGThzoktw8",
-    "job_tag_style": [ "Analytisch","Ruhig & konzentriert","Strukturiert","Teamarbeit"],
-    "job_tag_interests": ["Technik","Natur","Reisen","Umwelt"],
-    "job_tag_social": ["Teamplayer","Ruhig","Organisierend"]
+    "job_tag_style": ["Analytisch", "Ruhig & konzentriert", "Strukturiert", "Teamarbeit", "Teamplayer", "Ruhig", "Organisierend"],
+    "job_tag_interests": ["Technik", "Natur", "Reisen", "Umwelt"]
   }
 ]
