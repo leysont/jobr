@@ -11,25 +11,38 @@ function Home() {
   const [likedJobs, setLikedJobs] = useState<Job[]>([])
   const [areJobsAvailable, setAreJobsAvailable] = useState(true)
 
-  function setRandomJob(jobsList: Job[], addToLikedJobs: boolean = false) {
-    if (jobsList.length === 0) return
+  function setRandomJob(jobsList: Job[]) {
+    console.log('setRandomJob: received jobsList:')
+    console.log(jobsList)
+    if (jobsList.length === 0) {
+      console.log('setRandomJob: received empty array, returning')
+      return
+    }
     const randomJob = jobsList[Math.floor(Math.random() * jobsList.length)]
     setCurrentJob(randomJob)
   }
 
   function setNextJob(addToLikedJobs: boolean) {
     const seenJobsTemp = seenJobs
+    let likedJobsTemp = likedJobs
+
     if (currentJob) {
       seenJobsTemp.push(currentJob)
       // setSeenJobs(prev => [...prev, currentJob])
       if (addToLikedJobs) {
         setLikedJobs(prev => [...prev, currentJob])
+        likedJobsTemp = [...likedJobsTemp, currentJob]
         console.log(`added to liked jobs: ${currentJob.job_title}`)
       }
     }
-    setRandomJob(allJobs.filter(job => !seenJobsTemp.includes(job)), addToLikedJobs)
-    setAreJobsAvailable(allJobs.length > seenJobsTemp.length)
     setSeenJobs(seenJobsTemp)
+    if (allJobs.length <= seenJobsTemp.length) {
+      setAreJobsAvailable(false)
+      console.log('no more jobs available, evaluating matches')
+      evaluateMatches(likedJobsTemp)
+    } else {
+      setRandomJob(allJobs.filter(job => !seenJobsTemp.includes(job)))
+    }
   }
 
   useEffect(() => {
@@ -88,13 +101,17 @@ function Home() {
                 {[
                   jobMatch.job.job_tag_interests.map(tag => {
                     const isMatch = userTags?.interests.includes(tag)
-                    return <span className={`chip w-min whitespace-nowrap border blue ${(isMatch ? 'border-ctp-blue' : ' border-transparent')}`} key={`${jobMatch.job.id}-${tag}`}>
+                    return <span
+                      className={`chip w-min whitespace-nowrap border blue ${(isMatch ? 'border-ctp-blue' : ' border-transparent')}`}
+                      key={`${jobMatch.job.id}-${tag}`}>
                       {tag}
                     </span>
                   }),
                   jobMatch.job.job_tag_style.map(tag => {
                     const isMatch = userTags?.style.includes(tag)
-                    return <span className={`chip w-min whitespace-nowrap border green ${(isMatch ? 'border-ctp-green' : 'border-transparent')}`} key={`${jobMatch.job.id}-${tag}`}>
+                    return <span
+                      className={`chip w-min whitespace-nowrap border green ${(isMatch ? 'border-ctp-green' : 'border-transparent')}`}
+                      key={`${jobMatch.job.id}-${tag}`}>
                       {tag}
                     </span>
                   }),
@@ -109,16 +126,18 @@ function Home() {
   }
 
 
-  function evaluateMatches(): JobMatch[] {
+  function evaluateMatches(likedJobsTemp: Job[]) {
 
-    const unfilteredJobMatches: JobMatch[] = likedJobs.map(job => {
+    const unfilteredJobMatches: JobMatch[] = likedJobsTemp.map(job => {
       return {job, matching_tags: [job.job_tag_interests, job.job_tag_style].flat()}
     })
     const userTags2 = [userTags?.interests, userTags?.style].flat()
 
-    return unfilteredJobMatches.map(jobMatch => {
+    const jobMatches: JobMatch[] = unfilteredJobMatches.map(jobMatch => {
       return {...jobMatch, matching_tags: jobMatch.matching_tags.filter(tag => userTags2.includes(tag))}
     })
+
+    setMatchedJobs(jobMatches)
   }
 
   return <div className={'flex flex-col h-screen w-full'}>
@@ -128,9 +147,8 @@ function Home() {
         job={currentJob}
         onLike={() => setNextJob(true)}
         onDislike={() => setNextJob(false)}
-      />
-      :
-      <JobResults jobMatches={evaluateMatches()}/>
+      /> :
+      <JobResults jobMatches={matchedJobs}/>
     }
   </div>
 
