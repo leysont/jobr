@@ -18,15 +18,18 @@ function Home() {
   }
 
   function setNextJob(addToLikedJobs: boolean) {
+    const seenJobsTemp = seenJobs
     if (currentJob) {
-      setSeenJobs(prev => [...prev, currentJob])
+      seenJobsTemp.push(currentJob)
+      // setSeenJobs(prev => [...prev, currentJob])
       if (addToLikedJobs) {
         setLikedJobs(prev => [...prev, currentJob])
         console.log(`added to liked jobs: ${currentJob.job_title}`)
       }
     }
-    setRandomJob(allJobs.filter(job => !seenJobs.includes(job)), addToLikedJobs)
-    setAreJobsAvailable(allJobs.length > seenJobs.length)
+    setRandomJob(allJobs.filter(job => !seenJobsTemp.includes(job)), addToLikedJobs)
+    setAreJobsAvailable(allJobs.length > seenJobsTemp.length)
+    setSeenJobs(seenJobsTemp)
   }
 
   useEffect(() => {
