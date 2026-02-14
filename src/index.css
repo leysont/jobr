@@ -175,18 +175,19 @@
   }
 
   .PopUp{
-
-
     position: fixed;
-
-    left: 20%;
-    top: 20%;
-
-    width: 60%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 50;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: start;
+    align-items: stretch;
+    gap: 0.5rem;
   }
 }

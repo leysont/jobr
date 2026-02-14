@@ -1,4 +1,4 @@
-import {LucideArrowLeft, LucideTag} from 'lucide-react'
+import {LucideArrowLeft, LucideCheck, LucideSquare, LucideSquareCheck, LucideTag} from 'lucide-react'
 import {NavLink} from 'react-router'
 import {useState} from 'react'
 import {useAppCtx} from '../main.tsx'
@@ -7,13 +7,12 @@ type PopupShown = 'interests' | 'style'
 
 function Settings() {
 
-  const {userTags, setUserTags} = useAppCtx()
+  const {userTags} = useAppCtx()
 
   const [popupShown, setPopupShown] = useState<PopupShown | null>(null)
 
   function showPopupInterests() {
     setPopupShown('interests')
-
   }
 
   function showPopupStyle() {
@@ -49,56 +48,71 @@ function Settings() {
       </div>
     </div>
 
-    {/*{popupShown ? <ListSelectPopup type={popupShown}/> : null}*/}
+    {popupShown ? <ListSelectPopup type={popupShown} onPopupClose={closePopup}/> : null}
 
   </div>
 }
 
-// type ListSelectPopupProps = {
-//   type: PopupShown
-// }
+type ListSelectPopupProps = {
+  type: PopupShown,
+  onPopupClose: () => void
+}
 
-// function ListSelectPopup({type}: ListSelectPopupProps) {
-//   const {userTags, setUserTags, seenJobs, setSeenJobs, matchedJobs, setMatchedJobs, allJobs, setAllJobs} = useAppCtx()
-//
-//   const list: string[] = [...new Set(allJobs.map(job => type === 'interests' ? job.job_tag_interests : job.job_tag_style).flat())]
-//
-//   console.log(list)
-//
-//   return <div className={'PopUp card h-10'}>
-//     {type}
-//
-//     {list.map((tag, index) => <div key={index}>
-//       {type === 'interests' ?
-//         <CheckBox text={tag}
-//           checked={userTags?.interests.includes(tag) ?? false}
-//           onToggle={checked => {
-//             if(checked) {
-//               setUserTags(prev => prev?.interests.push(tag))
-//             } else {
-//               setUserTags({...userTags, interests: userTags.interests.filter(interest => interest !== tag)})
-//             }
-//           }}
-//         /> : type === 'style' ?
-//           <CheckBox text={tag}
-//             checked={userTags?.style.includes(tag) ?? false}/> : null
-//       }
-//     </div>)}
-//   </div>
-// }
+function ListSelectPopup({type, onPopupClose}: ListSelectPopupProps) {
+  const {userTags, setUserTags, allJobs} = useAppCtx()
 
-// type CheckBoxProps = {
-//   text: string,
-//   checked: boolean,
-//   onToggle: (checked: boolean) => void,
-// }
-//
-// function CheckBox({text, checked, onToggle}: CheckBoxProps) {
-//
-//   return <button onClick={() => onToggle(!checked)} role="checkbox" aria-checked={checked}>
-//     {checked ? <LucideSquareCheck/> : <LucideSquare/>}
-//     Accept terms
-//   </button>
-// }
+  const list: string[] = [...new Set(allJobs.map(job => type === 'interests' ? job.job_tag_interests : job.job_tag_style).flat())]
+
+  console.log(list)
+
+  return <div className={'PopUp card'}>
+    <div className={'flex justify-between items-center'}>
+      <h4 className="capitalize mb-2">
+        {type === 'interests' ? 'Interessen' : 'Arbeitsstil'}
+      </h4>
+      <button className={'btn blue py-1'} onClick={() => onPopupClose()}>
+        <LucideCheck size="20" />
+        Fertig
+      </button>
+    </div>
+
+    {list.map((tag, index) => <div key={index}>
+      <CheckBox
+        text={tag}
+        checked={type === 'interests' ? (userTags?.interests.includes(tag) ?? false) : (userTags?.style.includes(tag) ?? false)}
+        onToggle={checked => {
+          if (userTags) {
+            if (checked) {
+              setUserTags({
+                ...userTags,
+                [type]: [...userTags[type], tag],
+              })
+            } else {
+              setUserTags({
+                ...userTags,
+                [type]: userTags[type].filter(item => item !== tag),
+              })
+            }
+          }
+        }}
+      />
+    </div>)}
+  </div>
+}
+
+type CheckBoxProps = {
+  text: string,
+  checked: boolean,
+  onToggle: (checked: boolean) => void,
+}
+
+function CheckBox({text, checked, onToggle}: CheckBoxProps) {
+
+  return <button onClick={() => onToggle(!checked)} role="checkbox" aria-checked={checked}
+                 className={`flex items-center gap-2 w-full text-start hover:bg-ctp-surface0 p-1 rounded transition-colors ${checked ? 'bg-ctp-blue/10 text-ctp-blue' : ''}`}>
+    {checked ? <LucideSquareCheck/> : <LucideSquare/>}
+    {text}
+  </button>
+}
 
 export default Settings
