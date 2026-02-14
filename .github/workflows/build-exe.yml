@@ -21,10 +21,14 @@ jobs:
 
       - run: npm run build
 
-      - run: npx pkg server.js --targets node18-win-x64 --output dist-exe/app.exe
+      - name: Get version
+        id: version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $env:GITHUB_OUTPUT
+
+      - run: npx pkg server.js --targets node18-win-x64 --output dist-exe/jobr-${{ steps.version.outputs.version }}.exe
 
       - uses: softprops/action-gh-release@v2
         with:
-          tag_name: build-${{ github.run_number }}
-          name: Build ${{ github.run_number }}
-          files: dist-exe/app.exe
+          tag_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
+          files: dist-exe/jobr-${{ steps.version.outputs.version }}.exe
