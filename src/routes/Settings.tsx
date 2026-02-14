@@ -28,7 +28,7 @@ function Settings() {
       <NavLink to={'/home'}>
         <LucideArrowLeft size={28}/>
       </NavLink>
-      <h3>Einstellungen</h3>
+      <h3>Profil</h3>
     </div>
     <h4 className={'flex items-center gap-2 mx-5 py-1'}>
       <LucideTag/> Meine Tags

@@ -5,8 +5,8 @@ import {createRoot} from 'react-dom/client'
 import './index.css'
 import Home from './routes/Home.tsx'
 import {BrowserRouter, Navigate, NavLink, Outlet, Route, Routes, useOutletContext} from 'react-router'
-import {LucideHome, LucideSettings} from 'lucide-react'
-import Settings from './routes/Settings.tsx'
+import {LucideHome, LucideUser} from 'lucide-react'
+import Profile from './routes/Settings.tsx'
 import {type Job, jobRepo} from './JobRepo.ts'
 
 export type JobMatch = {
@@ -112,7 +112,7 @@ createRoot(document.getElementById('root')!).render(
         <Route element={<Layout/>}>
           <Route path="/" element={<Navigate to="/home" replace/>}/>
           <Route path="/home" element={<Home/>}/>
-          <Route path="/settings" element={<Settings/>}/>
+          <Route path="/profile" element={<Profile/>}/>
 
           <Route path="*" element={<Navigate to="/home" replace/>}/>
         </Route>
@@ -131,8 +131,8 @@ function NavigationBar(): ReactNode {
     <NavLink to="/home" className={linkClass}>
       <LucideHome size={40}/>
     </NavLink>
-    <NavLink to="/settings" className={linkClass}>
-      <LucideSettings size={40}/>
+    <NavLink to="/profile" className={linkClass}>
+      <LucideUser size={40}/>
     </NavLink>
   </div>
 }
