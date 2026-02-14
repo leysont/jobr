@@ -1,6 +1,6 @@
 import {LucideArrowLeft, LucideTag} from 'lucide-react'
 import {NavLink} from 'react-router'
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {useAppCtx} from '../main.tsx'
 
 type PopupShown = 'interests' | 'style'
@@ -8,14 +8,6 @@ type PopupShown = 'interests' | 'style'
 function Settings() {
 
   const {userTags, setUserTags} = useAppCtx()
-
-  useEffect(() => {
-    setUserTags({
-      interests: ["IT", "Technik", "Gaming", "Reisen", "Musik"],
-      style: ["Analytisch", "Kreativ", "Teamarbeit", "Strukturiert", "Flexibel",
-        "Teamplayer", "Kommunikativ", "Organisierend", "Unterstützend"],
-    })
-  }, []);
 
   const [popupShown, setPopupShown] = useState<PopupShown | null>(null)
 

@@ -1,13 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
 import * as React from 'react'
-import {type ReactNode, StrictMode, useState} from 'react'
+import {type ReactNode, StrictMode, useEffect, useState} from 'react'
 import {createRoot} from 'react-dom/client'
 import './index.css'
 import Home from './routes/Home.tsx'
 import {BrowserRouter, Navigate, NavLink, Outlet, Route, Routes, useOutletContext} from 'react-router'
 import {LucideHome, LucideSettings} from 'lucide-react'
 import Settings from './routes/Settings.tsx'
-import type {Job} from './JobRepo.ts'
+import {type Job, jobRepo} from './JobRepo.ts'
 
 export type JobMatch = {
   job: Job,
@@ -28,11 +28,16 @@ type AppCtx = {
   setMatchedJobs: React.Dispatch<React.SetStateAction<JobMatch[]>>,
   allJobs: Job[],
   setAllJobs: React.Dispatch<React.SetStateAction<Job[]>>,
+  currentJob: Job | null,
+  setCurrentJob: React.Dispatch<React.SetStateAction<Job | null>>,
+  setRandomJob: (jobs: Job[]) => void,
 }
 
 export function useAppCtx() {
   return useOutletContext<AppCtx>()
 }
+
+
 
 function Layout() {
 
@@ -40,6 +45,18 @@ function Layout() {
   const [seenJobs, setSeenJobs] = useState<Job[]>([])
   const [matchedJobs, setMatchedJobs] = useState<JobMatch[]>([])
   const [allJobs, setAllJobs] = useState<Job[]>([])
+  const [currentJob, setCurrentJob] = useState<Job | null>(null)
+
+  function setRandomJob(jobsList: Job[]) {
+    console.log('setRandomJob: received jobsList:')
+    console.log(jobsList)
+    if (jobsList.length === 0) {
+      console.log('setRandomJob: received empty array, returning')
+      return
+    }
+    const randomJob = jobsList[Math.floor(Math.random() * jobsList.length)]
+    setCurrentJob(randomJob)
+  }
 
   const appCtx: AppCtx = {
     userTags,
@@ -50,8 +67,23 @@ function Layout() {
     setMatchedJobs,
     allJobs,
     setAllJobs,
+    currentJob,
+    setCurrentJob,
+    setRandomJob
   }
 
+  useEffect(() => {
+    setUserTags({
+      interests: ["IT", "Technik", "Gaming", "Reisen", "Musik"],
+      style: ["Analytisch", "Kreativ", "Teamarbeit", "Strukturiert", "Flexibel",
+        "Teamplayer", "Kommunikativ", "Organisierend", "Unterstützend"],
+    })
+    jobRepo.getAll().then(jobs => {
+        setAllJobs(jobs)
+        setRandomJob(jobs)
+      },
+    )
+  }, []);
 
   return (
     <div className={'flex gap-5'}>

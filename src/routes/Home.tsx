@@ -3,24 +3,14 @@ import {type Job, jobRepo} from '../JobRepo.ts'
 import {useEffect, useState} from 'react'
 import {type JobMatch, useAppCtx} from '../main.tsx'
 
+
 function Home() {
 
-  const {userTags, seenJobs, setSeenJobs, matchedJobs, setMatchedJobs, allJobs, setAllJobs} = useAppCtx()
 
-  const [currentJob, setCurrentJob] = useState<Job | null>(null)
+  const {userTags, seenJobs, setSeenJobs, matchedJobs, setMatchedJobs, allJobs, setAllJobs, currentJob, setRandomJob} = useAppCtx()
   const [likedJobs, setLikedJobs] = useState<Job[]>([])
-  const [areJobsAvailable, setAreJobsAvailable] = useState(true)
 
-  function setRandomJob(jobsList: Job[]) {
-    console.log('setRandomJob: received jobsList:')
-    console.log(jobsList)
-    if (jobsList.length === 0) {
-      console.log('setRandomJob: received empty array, returning')
-      return
-    }
-    const randomJob = jobsList[Math.floor(Math.random() * jobsList.length)]
-    setCurrentJob(randomJob)
-  }
+  const [areJobsAvailable, setAreJobsAvailable] = useState(true)
 
   function setNextJob(addToLikedJobs: boolean) {
     const seenJobsTemp = seenJobs
@@ -28,7 +18,6 @@ function Home() {
 
     if (currentJob) {
       seenJobsTemp.push(currentJob)
-      // setSeenJobs(prev => [...prev, currentJob])
       if (addToLikedJobs) {
         setLikedJobs(prev => [...prev, currentJob])
         likedJobsTemp = [...likedJobsTemp, currentJob]
