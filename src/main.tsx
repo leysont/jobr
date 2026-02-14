@@ -30,6 +30,10 @@ type AppCtx = {
   setAllJobs: React.Dispatch<React.SetStateAction<Job[]>>,
   currentJob: Job | null,
   setCurrentJob: React.Dispatch<React.SetStateAction<Job | null>>,
+  likedJobs: Job[],
+  setLikedJobs: React.Dispatch<React.SetStateAction<Job[]>>,
+  areJobsAvailable: boolean,
+  setAreJobsAvailable: React.Dispatch<React.SetStateAction<boolean>>,
   setRandomJob: (jobs: Job[]) => void,
 }
 
@@ -46,6 +50,8 @@ function Layout() {
   const [matchedJobs, setMatchedJobs] = useState<JobMatch[]>([])
   const [allJobs, setAllJobs] = useState<Job[]>([])
   const [currentJob, setCurrentJob] = useState<Job | null>(null)
+  const [likedJobs, setLikedJobs] = useState<Job[]>([])
+  const [areJobsAvailable, setAreJobsAvailable] = useState(true)
 
   function setRandomJob(jobsList: Job[]) {
     console.log('setRandomJob: received jobsList:')
@@ -69,6 +75,10 @@ function Layout() {
     setAllJobs,
     currentJob,
     setCurrentJob,
+    likedJobs,
+    setLikedJobs,
+    areJobsAvailable,
+    setAreJobsAvailable,
     setRandomJob
   }
 

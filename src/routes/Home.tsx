@@ -1,16 +1,24 @@
 import {LucideRocket, LucideX} from 'lucide-react'
-import {type Job, jobRepo} from '../JobRepo.ts'
-import {useEffect, useState} from 'react'
+import {type Job} from '../JobRepo.ts'
+import {useEffect} from 'react'
 import {type JobMatch, useAppCtx} from '../main.tsx'
-
 
 function Home() {
 
-
-  const {userTags, seenJobs, setSeenJobs, matchedJobs, setMatchedJobs, allJobs, setAllJobs, currentJob, setRandomJob} = useAppCtx()
-  const [likedJobs, setLikedJobs] = useState<Job[]>([])
-
-  const [areJobsAvailable, setAreJobsAvailable] = useState(true)
+  const {
+    userTags,
+    seenJobs,
+    setSeenJobs,
+    matchedJobs,
+    setMatchedJobs,
+    allJobs,
+    currentJob,
+    setRandomJob,
+    likedJobs,
+    setLikedJobs,
+    areJobsAvailable,
+    setAreJobsAvailable,
+  } = useAppCtx()
 
   function setNextJob(addToLikedJobs: boolean) {
     const seenJobsTemp = seenJobs
@@ -35,11 +43,6 @@ function Home() {
   }
 
   useEffect(() => {
-    jobRepo.getAll().then(jobs => {
-        setAllJobs(jobs)
-        setRandomJob(jobs)
-      },
-    )
   }, [])
 
   type JobDisplayParams = {
@@ -70,7 +73,6 @@ function Home() {
       </div>
     </>
   }
-
 
   type JobResultsProps = {
     jobMatches: JobMatch[]
@@ -113,8 +115,7 @@ function Home() {
 
     </div>
   }
-
-
+  
   function evaluateMatches(likedJobsTemp: Job[]) {
 
     const unfilteredJobMatches: JobMatch[] = likedJobsTemp.map(job => {
