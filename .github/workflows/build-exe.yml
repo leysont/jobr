@@ -25,7 +25,7 @@ jobs:
         id: version
         run: echo "version=$(node -p "require('./package.json').version")" >> $env:GITHUB_OUTPUT
 
-      - run: npx pkg server.cjs --targets node18-win-x64 --output dist-exe/jobr-${{ steps.version.outputs.version }}.exe
+      - run: npx pkg server.cjs --targets node18-win-x64 --output dist-exe/jobr-${{ steps.version.outputs.version }}.exe --config package.json
 
       - uses: softprops/action-gh-release@v2
         with:
