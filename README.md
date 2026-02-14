@@ -1,3 +1,5 @@
+# Jobr
+
 ### Running
 
 The recommended way to run Jobr is via the official .exe file from Releases.
@@ -9,7 +11,7 @@ The recommended way to run Jobr is via the official .exe file from Releases.
   - Go to the [latest release](https://github.com/leysont/jobr/releases/latest) and download the .exe file
   - Launch the .exe file
     - If SmartScreen complains, click "More info" and then "Run anyway"
-    - If the firewall complains, you can click "no", the app will still work
+    - If the firewall complains, you can click "Cancel"; the app will still work
   - A Terminal window will open and Jobr will open in the browser automatically
     - If the browser doesn't open automatically, open it manually and navigate to http://localhost:5173
     - The website will work as long as the Terminal window is open
