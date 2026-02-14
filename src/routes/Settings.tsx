@@ -1,6 +1,6 @@
 import {LucideArrowLeft, LucideCheck, LucideSquare, LucideSquareCheck, LucideTag} from 'lucide-react'
 import {NavLink} from 'react-router'
-import {useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {useAppCtx} from '../main.tsx'
 
 type PopupShown = 'interests' | 'style'
@@ -60,12 +60,26 @@ type ListSelectPopupProps = {
 
 function ListSelectPopup({type, onPopupClose}: ListSelectPopupProps) {
   const {userTags, setUserTags, allJobs} = useAppCtx()
+  const popupRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+        onPopupClose()
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [onPopupClose])
 
   const list: string[] = [...new Set(allJobs.map(job => type === 'interests' ? job.job_tag_interests : job.job_tag_style).flat())]
 
   console.log(list)
 
-  return <div className={'PopUp card'}>
+  return <div className={'PopUp card'} ref={popupRef}>
     <div className={'flex justify-between items-center'}>
       <h4 className="capitalize mb-2">
         {type === 'interests' ? 'Interessen' : 'Arbeitsstil'}
