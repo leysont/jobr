@@ -30,7 +30,9 @@ const server = http.createServer((req, res) => {
   const contentType = MIME_TYPES[ext] || "application/octet-stream"
 
   fs.readFile(filePath, (err, data) => {
+    console.log("Serving:", filePath)
     if (err) {
+      console.log("Error:", err.message)
       res.writeHead(500)
       res.end("Internal Server Error")
       return

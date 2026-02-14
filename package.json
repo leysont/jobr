@@ -9,6 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "pkg": {
+    "assets": ["dist/**/*"]
+  },
   "dependencies": {
     "@fontsource/fira-code": "^5.2.7",
     "@fontsource/maven-pro": "^5.2.10",
