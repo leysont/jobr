@@ -80,14 +80,14 @@ function Home() {
 
   function JobResults({jobMatches}: JobResultsProps) {
     return <div className={'w-full flex flex-col justify-center items-center gap-3 size-full'}>
-      <h3 className={'text-ctp-green'}>Du hast {jobMatches.length} Jobs geliket!</h3>
-      <span className={''}>Sieh dir jetzt an, welche Jobs wirklich zu dir passen!</span>
+      <h3 className={'text-ctp-green'}>Dich interessieren {jobMatches.length} Jobs!</h3>
+      <span className={''}>Sieh dir jetzt an, welche davon am besten zu dir passen!</span>
 
       <div className={'flex flex-col gap-5 max-h-96 overflow-y-auto mt-5 max-w-96'}>
         {
-          jobMatches.sort((a, b) => b.matching_tags.length - a.matching_tags.length).map(jobMatch =>
+          jobMatches.sort((a, b) => b.matching_tags.length - a.matching_tags.length).slice(0, 10).map((jobMatch, index) =>
             <div className={'flex flex-col'} key={jobMatch.job.id}>
-              <span className={'text-start ps-2'}>{jobMatch.job.job_title}</span>
+              <span className={'text-start ps-2'}>{index+1}. {jobMatch.job.job_title}</span>
               <div className={'flex flex-wrap gap-1'}>
                 {[
                   jobMatch.job.job_tag_interests.map(tag => {
